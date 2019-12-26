@@ -1,0 +1,25 @@
+.generateRow {
+    margin-top: 15%;
+}
+
+.projectName {
+    padding: 0 8px 5px 0;
+    text-align: left;
+    color: #253858;
+    height: fit-content;
+    border-width: 0 0 2px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #dee1e6, #fff) 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Mukta', sans-serif;
+    min-width: 300px;
+}
+
+.colAlignment {
+    text-align: center;
+}
+
+.buttonGenerate{
+    font-size: 1.5rem;
+}
