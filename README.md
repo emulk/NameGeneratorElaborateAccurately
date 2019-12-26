@@ -1,4 +1,4 @@
-##Name Generator Elaborate Accurately
+# Name Generator Elaborate Accurately
 
 For the holidays i was starting some new projects, but i couldn’t think of a name, so i create a project name generator web app.
 
@@ -7,6 +7,6 @@ but i found an article where it says that, agency like CIA or NSA always use ran
 to keep secret the project purpose.
 
 You can findit here if you want to test it, is really funny:
-https://www.elegantweb.it/index.php/project/project-name-generator/
+[Name Generator Elaborate Accurately](https://www.elegantweb.it/index.php/project/project-name-generator/)
 
-Funny fact: i have uses the application to choose its name, and the name wisely choose was Name Generator Elaborate Accurately
+## Funny fact: i have uses the application to choose its name, and the name wisely choose was Name Generator Elaborate Accurately
