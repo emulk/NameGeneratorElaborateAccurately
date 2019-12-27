@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button, Table } from 'react-bootstrap';
 import { NewNameGenerator } from './NameGenerator';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './GenerateNewNameStyle.css';
@@ -12,7 +12,8 @@ class GenerateNewName extends Component {
         this.state = {
             name: '',
             finalName: '',
-            index: 0
+            index: 0,
+            history: []
         };
 
         this.handleGetNewInterval = this.handleGetNewInterval.bind(this);
@@ -25,11 +26,19 @@ class GenerateNewName extends Component {
 
     handleGetNewInterval() {
         let name = NewNameGenerator();
+        let oldName = this.state.finalName;
+        let oldHistory = this.state.history;
+        if (oldName.length > 0) {
+            oldHistory.unshift(oldName);
+        }
+
         this.setState({
             name: '',
             finalName: name,
-            index: 0
+            index: 0,
+            history: oldHistory
         });
+
         clearInterval(this.interval);
         this.interval = setInterval(this.handleInterval, 100);
     }
@@ -46,14 +55,30 @@ class GenerateNewName extends Component {
 
     render() {
         return (
-            <Row className="generateRow">
-                <Col>
-                    <div className="projectName">{this.state.name}</div>
-                </Col>
-                <Col className="colAlignment">
-                    <Button className="buttonGenerate" variant="outline-primary" onClick={this.handleGetNewInterval}>Generate Name</Button>
-                </Col>
-            </Row>
+            <span>
+                <Row className="generateRow">
+                    <Col>
+                        <div className="projectName">{this.state.name}</div>
+                    </Col>
+                    <Col className="colAlignment">
+                        <Button className="buttonGenerate" variant="outline-primary" onClick={this.handleGetNewInterval}>Generate Name</Button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Table responsive>
+                            <tbody>
+                                {this.state.history.map(item => (
+                                    <tr>
+                                        <td key={item}>{item}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    </Col>
+                    <Col></Col>
+                </Row>
+            </span>
         );
     }
 }
